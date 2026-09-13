@@ -1,0 +1,28 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Builds
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Build
+        run: cargo build --release
+
+      - name: cargo clippy
+        run: cargo clippy -- -D warnings
+
+      - name: Run fmt
+        run: cargo fmt --all -- --check
+
+      - name: Run tests
+        run: cargo test -- --nocapture
