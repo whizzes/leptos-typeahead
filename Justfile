@@ -8,3 +8,7 @@ dkc:
         -v $(pwd):/app \
         -w /app \
         ghcr.io/leoborai/dkc:latest
+
+fmt:
+	cargo clippy --fix --workspace --allow-dirty --allow-staged
+	cargo fmt
