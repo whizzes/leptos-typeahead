@@ -198,12 +198,10 @@ where
                 controller.close_menu();
             }
         }
-        "Backspace" => {
-            if multiple.get_untracked() && controller.query.get_untracked().is_empty() {
-                let len = selected.get_untracked().len();
-                if len > 0 {
-                    remove_token(len - 1);
-                }
+        "Backspace" if multiple.get_untracked() && controller.query.get_untracked().is_empty() => {
+            let len = selected.get_untracked().len();
+            if len > 0 {
+                remove_token(len - 1);
             }
         }
         _ => {}
