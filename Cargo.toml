@@ -1,6 +1,6 @@
 [package]
 name = "leptos-typeahead"
-version = "0.0.0"
+version = "0.0.1"
 edition = "2024"
 description = "A themeable, accessible typeahead/autocomplete component for Leptos"
 license = "MIT"
